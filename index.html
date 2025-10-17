@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>콘텐츠 추천 기록</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+</head>
+<body>
+  <h1>📺 나의 콘텐츠 추천 기록</h1>
+
+  <!-- 기록 입력 폼 -->
+  <form id="record-form">
+    <div class="form-group">
+      <label>1. 당신의 나이대는 어디인가요?</label><br>
+      <label><input type="radio" name="ageGroup" value="10대" required> 10대</label>
+      <label><input type="radio" name="ageGroup" value="20대"> 20대</label>
+      <label><input type="radio" name="ageGroup" value="30대"> 30대</label>
+      <label><input type="radio" name="ageGroup" value="40대"> 40대</label>
+      <label><input type="radio" name="ageGroup" value="50대 이상"> 50대 이상</label>
+    </div>
+
+    <div class="form-group">
+      <label>2. 최근에 감상한 콘텐츠의 제목은 무엇인가요?</label><br>
+      <input type="text" name="title" placeholder="예: 오펜하이머" required>
+    </div>
+
+    <div class="form-group">
+      <label>3. 콘텐츠의 유형은 무엇인가요?</label><br>
+      <select name="contentType" required>
+        <option value="">선택하세요</option>
+        <option value="영화">영화</option>
+        <option value="드라마/시리즈">드라마/시리즈</option>
+        <option value="예능/리얼리티">예능/리얼리티</option>
+        <option value="애니메이션">애니메이션</option>
+        <option value="인터넷 방송">인터넷 방송</option>
+        <option value="기타">기타</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>4. 이 콘텐츠를 추천하고 싶나요? (1 = 전혀, 5 = 매우)</label><br>
+      <select name="recommendation" required>
+        <option value="">선택하세요</option>
+        <option value="5">5</option>
+        <option value="4">4</option>
+        <option value="3">3</option>
+        <option value="2">2</option>
+        <option value="1">1</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>5. 추천 이유가 있다면 무엇인가요?</label><br>
+      <label><input type="radio" name="reason" value="스토리가 흥미로워서" required> 스토리가 흥미로워서</label>
+      <label><input type="radio" name="reason" value="연출/영상미가 좋아서"> 연출/영상미가 좋아서</label>
+      <label><input type="radio" name="reason" value="캐릭터나 배우가 좋아서"> 캐릭터나 배우가 좋아서</label>
+      <label><input type="radio" name="reason" value="메시지나 주제가 인상 깊어서"> 메시지나 주제가 인상 깊어서</label>
+      <label><input type="radio" name="reason" value="기타"> 기타</label>
+    </div>
+
+    <!-- 날짜는 자동 저장용 (보이지 않게 유지) -->
+    <input type="hidden" id="date" name="date">
+
+    <button type="submit">기록하기</button>
+  </form>
+
+  <hr>
+
+  <h2>📊 기록 목록</h2>
+  <div id="records-container"></div>
+
+  <button id="export-excel">엑셀로 내보내기</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
