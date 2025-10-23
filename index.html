@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>콘텐츠 추천 기록</title>
+  <title>콘텐츠 추천 설문</title>
   <link rel="stylesheet" href="style.css" />
-  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
 </head>
 <body>
   <div class="container">
@@ -13,8 +12,11 @@
       <h1>📺 요즘 뭐 봤어요?</h1>
     </header>
 
-    <!-- 기록 입력 폼 -->
+    <!-- Netlify 폼 -->
     <form id="record-form" name="survey-form" netlify>
+      <!-- ✅ Netlify 인식용 숨은 input -->
+      <input type="hidden" name="form-name" value="survey-form">
+
       <div class="form-group">
         <label>1. 당신의 나이대는 어디인가요?</label><br>
         <label><input type="radio" name="ageGroup" value="10대" required> 10대</label>
@@ -41,26 +43,26 @@
           <option value="기타">기타</option>
         </select>
       </div>
-      
-<div class="form-group">
-  <label>4. 이 콘텐츠를 추천하고 싶나요? (1 = 전혀 추천하지 않는다, 5 = 매우 추천한다)</label>
-  <div class="rating-group">
-    <input type="radio" id="rating-5" name="recommendation" value="5" required>
-    <label for="rating-5">🥰 5</label>
 
-    <input type="radio" id="rating-4" name="recommendation" value="4">
-    <label for="rating-4">😄 4</label>
+      <div class="form-group">
+        <label>4. 이 콘텐츠를 추천하고 싶나요? (1 = 전혀 추천하지 않는다, 5 = 매우 추천한다)</label>
+        <div class="rating-group">
+          <input type="radio" id="rating-5" name="recommendation" value="5" required>
+          <label for="rating-5">🥰 5</label>
 
-    <input type="radio" id="rating-3" name="recommendation" value="3">
-    <label for="rating-3">🙂 3</label>
+          <input type="radio" id="rating-4" name="recommendation" value="4">
+          <label for="rating-4">😄 4</label>
 
-    <input type="radio" id="rating-2" name="recommendation" value="2">
-    <label for="rating-2">😐 2</label>
+          <input type="radio" id="rating-3" name="recommendation" value="3">
+          <label for="rating-3">🙂 3</label>
 
-    <input type="radio" id="rating-1" name="recommendation" value="1">
-    <label for="rating-1">😔 1</label>
-  </div>
-</div>
+          <input type="radio" id="rating-2" name="recommendation" value="2">
+          <label for="rating-2">😐 2</label>
+
+          <input type="radio" id="rating-1" name="recommendation" value="1">
+          <label for="rating-1">😔 1</label>
+        </div>
+      </div>
 
       <div class="form-group">
         <label>5. 추천 이유가 있다면 무엇인가요?</label><br>
@@ -71,7 +73,6 @@
         <label><input type="radio" name="reason" value="기타"> 기타</label>
       </div>
 
-      <!-- 날짜는 자동 저장용 (보이지 않게 유지) -->
       <input type="hidden" id="date" name="date">
 
       <button type="submit">기록하기</button>
