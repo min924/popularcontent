@@ -10,7 +10,7 @@
 <body>
   <div class="container">
     <header>
-      <h1>📺 나의 콘텐츠 추천 기록</h1>
+      <h1>📺 요즘 뭐 봤어요?</h1>
     </header>
 
     <!-- 기록 입력 폼 -->
@@ -52,6 +52,20 @@
           <option value="2">2</option>
           <option value="1">1</option>
         </select>
+                        <div class="form-group">
+                    <label>4. 이 콘텐츠를 추천하고 싶나요? (1 = 전혀 추천하지 않는다, 5 = 매우 추천한다)</label>
+                    <div class="mood-selector">
+                        <input type="radio" id="mood-happy" name="mood" value="행복" checked>
+                        <label for="mood-happy">🥰 5</label>
+                        <input type="radio" id="mood-happy" name="mood" value="좋음" checked>
+                        <label for="mood-happy">😄 4</label>
+                        <input type="radio" id="mood-proud" name="mood" value="보통">
+                        <label for="mood-proud">🙂 3</label>
+                        <input type="radio" id="mood-thankful" name="mood" value="우울">
+                        <label for="mood-thankful">😐 2</label>
+                        <input type="radio" id="mood-moved" name="mood" value="분노">
+                        <label for="mood-moved">😔 1</label>
+                    </div>
       </div>
 
       <div class="form-group">
@@ -68,13 +82,6 @@
 
       <button type="submit">기록하기</button>
     </form>
-
-    <hr>
-
-    <h2>📊 기록 목록</h2>
-    <div id="records-container"></div>
-
-    <button id="export-excel">엑셀로 내보내기</button>
   </div>
 
   <script src="script.js"></script>
